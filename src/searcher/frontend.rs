@@ -19,7 +19,7 @@ pub fn main() -> io::Result<()> {
     let re = Regex::new(keyword).unwrap();
     let file_list = gen_file_list(base_path_str).unwrap();
 
-    let search_result = backend::search_linear(&keyword, &file_list, read_tumblr_file)?;
+    let search_result = backend::search_parallel(&keyword, &file_list, &read_tumblr_file)?;
 
     for item in search_result {
         let data = read_file(item.path);
