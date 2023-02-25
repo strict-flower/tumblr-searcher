@@ -68,5 +68,5 @@ where
             }
         })
         .reduce_with(|x, y| [x, y].concat())
-        .unwrap())
+        .unwrap_or(vec![]))
 }
